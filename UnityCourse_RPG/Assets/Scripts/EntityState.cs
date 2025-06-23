@@ -16,18 +16,18 @@ public abstract class EntityState
     public virtual void Enter()
     {
         // evertime state will be chaned, enter will be called
-        Debug.Log( "I enter " + stateName );
+        // Debug.Log( "I enter " + stateName );
     }
 
     public virtual void Update()
     {
         // we going to run logic of the state here
-        Debug.Log("I run update of " + stateName);
+        // Debug.Log("I run update of " + stateName);
     }
 
     public virtual void Exit()
     {
         // this will be called, everytime we exit state and change to new one
-        Debug.Log("I exit " + stateName);
+        // Debug.Log("I exit " + stateName);
     }
 }
