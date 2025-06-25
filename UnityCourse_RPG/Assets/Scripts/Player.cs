@@ -3,6 +3,8 @@ using UnityEngine.Windows;
 
 public class Player : MonoBehaviour
 {
+    public Animator animator {  get; private set; }
+
     private PlayerInputSet input;
 
     private StateMachine stateMachine;
@@ -13,6 +15,8 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
+
         input = new PlayerInputSet();
 
         stateMachine = new StateMachine();

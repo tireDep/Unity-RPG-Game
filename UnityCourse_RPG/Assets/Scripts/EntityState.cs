@@ -4,19 +4,23 @@ public abstract class EntityState
 {
     protected Player player;
     protected StateMachine stateMachine;
-    protected string stateName;
+    protected string animBoolName;
 
-    public EntityState(Player player, StateMachine stateMachine, string stateName)
+    protected Animator animator;
+
+    public EntityState(Player player, StateMachine stateMachine, string animBoolName)
     {
         this.player = player;
         this.stateMachine = stateMachine;   // player stateMachine
-        this.stateName = stateName;
+        this.animBoolName = animBoolName;
+
+        animator = player.animator;
     }
 
     public virtual void Enter()
     {
         // evertime state will be chaned, enter will be called
-        // Debug.Log( "I enter " + stateName );
+        animator.SetBool(animBoolName, true);
     }
 
     public virtual void Update()
@@ -28,6 +32,6 @@ public abstract class EntityState
     public virtual void Exit()
     {
         // this will be called, everytime we exit state and change to new one
-        // Debug.Log("I exit " + stateName);
+        animator.SetBool(animBoolName, false);
     }
 }
