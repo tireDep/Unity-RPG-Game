@@ -11,6 +11,12 @@ public class Player_GroundState : EntityState
     {
         base.Update();
 
+        if( rb.linearVelocityY < 0 )
+        {
+            // 낙하 상태 감지
+            stateMachine.ChangeState(player.fallState);
+        }
+
         if(input.Player.Jump.WasPerformedThisFrame())
         {
             stateMachine.ChangeState(player.jumpState);
