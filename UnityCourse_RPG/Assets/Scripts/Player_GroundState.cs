@@ -11,7 +11,7 @@ public class Player_GroundState : EntityState
     {
         base.Update();
 
-        if( rb.linearVelocityY < 0 )
+        if( rb.linearVelocityY < 0 && player.groundDetected == false)
         {
             // 낙하 상태 감지
             stateMachine.ChangeState(player.fallState);
