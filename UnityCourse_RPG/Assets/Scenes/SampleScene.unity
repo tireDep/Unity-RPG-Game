@@ -146,7 +146,7 @@ Transform:
   m_GameObject: {fileID: 17878357}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.52844554, y: 2.3500004, z: 0}
+  m_LocalPosition: {x: 0.306, y: 2.3500004, z: 0}
   m_LocalScale: {x: 0.36411214, y: 5.8375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -751,6 +751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   jumpForce: 12
+  wallJumpForce: {x: 6, y: 12}
   inAirMoveMultiplier: 0.7
   wallSlideSlowMultiplier: 0.4
   facingRight: 1
