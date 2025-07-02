@@ -12,6 +12,8 @@ public abstract class EntityState
 
     protected float stateTimer;
 
+    protected bool triggerCalled;
+
     public EntityState(Player player, StateMachine stateMachine, string animBoolName)
     {
         this.player = player;
@@ -27,6 +29,7 @@ public abstract class EntityState
     {
         // evertime state will be chaned, enter will be called
         animator.SetBool(animBoolName, true);
+        triggerCalled = false;
     }
 
     public virtual void Update()
@@ -46,6 +49,11 @@ public abstract class EntityState
     {
         // this will be called, everytime we exit state and change to new one
         animator.SetBool(animBoolName, false);
+    }
+
+    public void SetAnimationTrigger()
+    {
+        triggerCalled = true;
     }
 
     private bool CanDash()
