@@ -4,6 +4,8 @@ public class Player_DashState : EntityState
 {
     private float originalGravityScale;
 
+    private int dashDir;
+
     public Player_DashState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
     }
@@ -15,6 +17,8 @@ public class Player_DashState : EntityState
         stateTimer = player.dashDuration;
         originalGravityScale = rb.gravityScale;
         rb.gravityScale = 0.0f;
+
+        dashDir = player.moveInput.x != 0 ? (int)player.moveInput.x : (int)player.transform.right.x;
     }
 
     public override void Update()
