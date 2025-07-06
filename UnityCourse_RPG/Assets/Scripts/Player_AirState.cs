@@ -16,5 +16,10 @@ public class Player_AirState : EntityState
             // player.inAirMoveMultiplier : 공중 이동 속도 제어
             player.SetVelocity(player.moveInput.x * (player.moveSpeed * player.inAirMoveMultiplier), rb.linearVelocityY);
         }
+
+        if(input.Player.Attack.WasPressedThisFrame())
+        {
+            stateMachine.ChangeState(player.jumpAttackState);
+        }
     }
 }
