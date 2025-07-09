@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 31499a3c79a8a2b48a8b6372b2f0f51d
+guid: 49b5f74982960cc4cae3a747b9f011f9
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      walk_knight_6_0: -6379180257531002336
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

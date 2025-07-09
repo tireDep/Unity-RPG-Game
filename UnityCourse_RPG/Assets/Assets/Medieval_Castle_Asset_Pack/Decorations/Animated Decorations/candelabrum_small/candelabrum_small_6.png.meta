@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d22821a26a03d5e46adaa56f2047e185
+guid: 094c0d3f43f4e3547b5140c6f978aa9d
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      candelabrum_small_6_0: -6787412622403783599
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

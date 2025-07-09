@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dbadc83cd03ded149b9092437279e4b8
+guid: 81222f7700c681f4fb80456c189b9169
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      torch_small_blue_1_0: 3720301088864272483
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

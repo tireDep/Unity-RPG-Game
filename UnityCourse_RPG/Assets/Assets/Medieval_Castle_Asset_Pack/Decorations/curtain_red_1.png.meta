@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e268614cb77e6745943b634b10ace28
+guid: 7d9c5436c4b9fd445be0ad5a1f0ea698
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      curtain_red_1_0: -8539710997257545600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

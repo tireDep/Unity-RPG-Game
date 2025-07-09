@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f5e62644f38c6eb429925819e10cd649
+guid: 3932cde96c1601345a6d98d1b85d8f0f
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      torch_big_blue_background_0: 424371053549417813
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

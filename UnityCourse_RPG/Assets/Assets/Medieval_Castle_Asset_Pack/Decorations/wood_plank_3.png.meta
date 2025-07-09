@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 483088846a5a3224dbff8f72d4a27f59
+guid: ed69322fd0ebf704e81c375557e8e128
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      wood_plank_3_0: -4332152702362568881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

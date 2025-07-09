@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 34016e9d1711fcb49af4dc073ab36530
+guid: ac12359a5d31a0f4e94abb00959ebfaa
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      candle_blue_3_5_0: 2864672501238090333
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
