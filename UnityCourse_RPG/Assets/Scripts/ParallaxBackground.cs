@@ -13,7 +13,7 @@ public class ParallaxBackground : MonoBehaviour
     {
         mainCamera = Camera.main;
         cameraHalfWidth = mainCamera.orthographicSize * mainCamera.aspect; // 직교 크기 * 메인 카메라 측면
-        CalculateImageLength();
+        InitializeLayers();
     }
 
     private void FixedUpdate()
@@ -33,7 +33,7 @@ public class ParallaxBackground : MonoBehaviour
         }
     }
 
-    private void CalculateImageLength()
+    private void InitializeLayers()
     {
         foreach (ParallaxLayer layer in backgroundLayers)
         {
