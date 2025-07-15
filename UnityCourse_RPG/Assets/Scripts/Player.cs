@@ -2,15 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Windows;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
-    public Animator animator {  get; private set; }
-    public Rigidbody2D rb { get; private set; }
+    public PlayerInputSet input { get; private set; }
 
-    public PlayerInputSet input {  get; private set; }
-
-    private StateMachine stateMachine;
-    public Player_IdleState idleState {  get; private set; }
+    public Player_IdleState idleState { get; private set; }
     public Player_MoveState moveState { get; private set; }
     public Player_JumpState jumpState { get; private set; }
     public Player_FallState fallState { get; private set; }
@@ -33,7 +29,7 @@ public class Player : MonoBehaviour
     public Vector2 wallJumpForce;
     public Vector2 moveInput { get; private set; }
 
-    [Range(0,1)]
+    [Range(0, 1)]
     public float inAirMoveMultiplier = 0.7f;
     [Range(0, 1)]
     public float wallSlideSlowMultiplier = 0.7f;
@@ -41,26 +37,11 @@ public class Player : MonoBehaviour
     public float dashDuration = 0.25f;
     public float dashSpeed = 20.0f;
 
-    public bool facingRight = true;
-    private int facingDir = 1;
-
-    [Header("Collision Detection")]
-    [SerializeField] private float groundCheckDistance;
-    [SerializeField] private float wallCheckDistance;
-    [SerializeField] private LayerMask whatIsGround;
-    [SerializeField] private Transform primaryWallCheck;
-    [SerializeField] private Transform secondaryWallCheck;
-    public bool groundDetected {  get; private set; }
-    public bool wallDetected { get; private set; }
-
-    private void Awake()
+    protected override void Awake()
     {
-        animator = GetComponentInChildren<Animator>();
-        rb = GetComponent<Rigidbody2D>();
+        base.Awake();
 
         input = new PlayerInputSet();
-
-        stateMachine = new StateMachine();
 
         idleState = new Player_IdleState(this, stateMachine, "Idle");
         moveState = new Player_MoveState(this, stateMachine, "Move");
@@ -73,40 +54,18 @@ public class Player : MonoBehaviour
         jumpAttackState = new Player_JumpAttackState(this, stateMachine, "JumpAttack");
     }
 
-    private void OnEnable()
+    protected override void Start()
     {
-        input.Enable();
+        base.Start();
 
-        // input.Player.Movement.started : input just began
-        // input.Player.Movement.performed : input is performed
-        // input.Player.Movement.canceled : input stops, when you release the key
-
-        // input.Player.Movement.performed += context => Debug.Log(context.ReadValue<Vector2>());  // 람다식
-        input.Player.Movement.performed += context => moveInput = context.ReadValue<Vector2>();
-        input.Player.Movement.canceled += context => moveInput = Vector2.zero;
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
-    }
-
-    private void Start()
-    {
         stateMachine.Initialize(idleState);
-    }
-
-    private void Update()
-    {
-        HandleCollisionDectection();
-        stateMachine.UpdateActiveState();
     }
 
     public void EnterAttackStateWithDelay()
     {
-        if( queuedAttackCoroutine != null )
+        if (queuedAttackCoroutine != null)
         {
-            StopCoroutine( queuedAttackCoroutine );
+            StopCoroutine(queuedAttackCoroutine);
         }
 
         queuedAttackCoroutine = StartCoroutine(EnterAttackStateWithDelayCo());
@@ -118,47 +77,16 @@ public class Player : MonoBehaviour
         stateMachine.ChangeState(basicAttackState);
     }
 
-    public void SetAnimationTrigger()
+    private void OnEnable()
     {
-        stateMachine.currentState.SetAnimationTrigger();
+        input.Enable();
+
+        input.Player.Movement.performed += context => moveInput = context.ReadValue<Vector2>();
+        input.Player.Movement.canceled += context => moveInput = Vector2.zero;
     }
 
-    public void SetVelocity(float xVelocity, float yVelocity)
+    private void OnDisable()
     {
-        rb.linearVelocity = new Vector2(xVelocity, yVelocity);
-        HandleFlip(xVelocity);
-    }
-
-    private void HandleFlip(float xVelocity)
-    {
-        if( ( xVelocity > 0 && facingRight == false ) 
-            || (xVelocity < 0 && facingRight == true) 
-          )
-        {
-            Flip();
-        }
-    }
-
-    public void Flip()
-    {
-        transform.Rotate(0.0f, 180.0f, 0.0f);
-        facingRight = !facingRight;
-        facingDir *= -1;
-    }
-
-    private void HandleCollisionDectection()
-    {
-        groundDetected = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, whatIsGround);
-
-        wallDetected = Physics2D.Raycast(primaryWallCheck.position, Vector2.right * transform.right, wallCheckDistance, whatIsGround)
-                       && Physics2D.Raycast(secondaryWallCheck.position, Vector2.right * transform.right, wallCheckDistance, whatIsGround);
-
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0, -groundCheckDistance, 0));
-        Gizmos.DrawLine(primaryWallCheck.position, primaryWallCheck.position + new Vector3(wallCheckDistance * transform.right.x, 0, 0));
-        Gizmos.DrawLine(secondaryWallCheck.position, secondaryWallCheck.position + new Vector3(wallCheckDistance * transform.right.x, 0, 0));
+        input.Disable();
     }
 }

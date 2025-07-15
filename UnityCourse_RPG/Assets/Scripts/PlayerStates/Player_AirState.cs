@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // 점프 상태시, 이동을 위한 상태 추가
-public class Player_AirState : EntityState
+public class Player_AirState : PlayerState
 {
     public Player_AirState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
