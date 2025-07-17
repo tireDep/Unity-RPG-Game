@@ -7,6 +7,10 @@ public class Enemy : Entity
     public Enemy_AttackState attackState;
     public Enemy_BattleState battleState;
 
+    [Header("Battle Details")]
+    public float battleMoveSpeed = 3.0f;
+    public float attackDistance = 2.0f;
+
     [Header("Movement Details")]
     public float idleTime = 2;
     public float moveSpeed = 1.5f;
@@ -36,5 +40,8 @@ public class Enemy : Entity
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (transform.right.x * playerCheckDistance), playerCheck.position.y));
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (transform.right.x * attackDistance), playerCheck.position.y));
     }
 }
