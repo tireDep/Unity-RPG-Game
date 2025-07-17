@@ -11,8 +11,6 @@ public class Player_BasicAttackState : PlayerState
 
     private bool comboAttackQueued = false;
 
-    private int attackDir;
-
     public Player_BasicAttackState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
         comboLimit = player.attackVelocity.Length - 1;
@@ -24,8 +22,6 @@ public class Player_BasicAttackState : PlayerState
 
         comboAttackQueued = false;
         ResetComboIndexIfNeeded();
-
-        attackDir = player.moveInput.x != 0 ? (int)player.moveInput.x : (int)player.transform.right.x;
 
         animator.SetInteger("BasicAttackIndex", comboIndex);
         ApplyAttackVelocity();
@@ -90,7 +86,7 @@ public class Player_BasicAttackState : PlayerState
         attackVelocityTimer = player.attackVelocityDuration;
 
         // 공격할때 움직이는 것처럼 보임
-        player.SetVelocity(player.attackVelocity[comboIndex].x * player.transform.right.x * attackDir, player.attackVelocity[comboIndex].y);
+        player.SetVelocity(player.attackVelocity[comboIndex].x * player.transform.right.x, player.attackVelocity[comboIndex].y);
     }
 
     private void ResetComboIndexIfNeeded()
