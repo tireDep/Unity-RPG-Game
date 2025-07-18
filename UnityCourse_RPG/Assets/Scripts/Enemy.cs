@@ -10,6 +10,9 @@ public class Enemy : Entity
     [Header("Battle Details")]
     public float battleMoveSpeed = 3.0f;
     public float attackDistance = 2.0f;
+    public float battleTimeDuration = 5.0f;
+    public float minRetreatDistance = 1.0f;
+    public Vector2 retreatVelocity;
 
     [Header("Movement Details")]
     public float idleTime = 2;
@@ -22,7 +25,7 @@ public class Enemy : Entity
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10.0f;
 
-    public RaycastHit2D CheckPlayerDetection()
+    public RaycastHit2D CheckPlayerDetected()
     {
         RaycastHit2D hit = Physics2D.Raycast(playerCheck.position, Vector2.right * transform.right.x, playerCheckDistance, whatIsPlayer | whatIsGround);
         if( hit.collider == null || hit.collider.gameObject.layer != LayerMask.NameToLayer("Player"))
@@ -43,5 +46,8 @@ public class Enemy : Entity
 
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (transform.right.x * attackDistance), playerCheck.position.y));
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (transform.right.x * minRetreatDistance), playerCheck.position.y));
     }
 }

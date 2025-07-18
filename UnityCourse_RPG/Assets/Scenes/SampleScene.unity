@@ -61347,6 +61347,9 @@ MonoBehaviour:
   groundCheck: {fileID: 614149678}
   battleMoveSpeed: 3
   attackDistance: 2
+  battleTimeDuration: 5
+  minRetreatDistance: 1
+  retreatVelocity: {x: 3, y: 1}
   idleTime: 2
   moveSpeed: 1.5
   moveAnimSpeedMultiplier: 1

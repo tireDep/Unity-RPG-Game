@@ -11,6 +11,6 @@ public class Entity_AnimationTriggers : MonoBehaviour
 
     public void CurrentStateTrigger()
     {
-        entity.SetAnimationTrigger();
+        entity.SetCurrentStateAnimationTrigger();
     }
 }
