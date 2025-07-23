@@ -61178,6 +61178,7 @@ GameObject:
   - component: {fileID: 1828113920}
   - component: {fileID: 1828113919}
   - component: {fileID: 1828113923}
+  - component: {fileID: 1828113924}
   - component: {fileID: 1828113921}
   - component: {fileID: 1828113922}
   m_Layer: 7
@@ -61317,15 +61318,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48db0063bab1e2458a275e5b67a3def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  damage: 10
   targetCheck: {fileID: 1675399777}
   targetCheckRadius: 1
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &1828113924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828113918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1007b1881a4a0c14a9a10c22aa3b6150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  isDead: 0
 --- !u!1 &1831133412
 GameObject:
   m_ObjectHideFlags: 0
@@ -61337,6 +61349,7 @@ GameObject:
   - component: {fileID: 1831133416}
   - component: {fileID: 1831133415}
   - component: {fileID: 1831133417}
+  - component: {fileID: 1831133418}
   - component: {fileID: 1831133414}
   - component: {fileID: 1831133413}
   m_Layer: 8
@@ -61474,15 +61487,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48db0063bab1e2458a275e5b67a3def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  damage: 10
   targetCheck: {fileID: 1313492002}
   targetCheckRadius: 1
   whatIsTarget:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1831133418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831133412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1007b1881a4a0c14a9a10c22aa3b6150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 100
+  isDead: 0
 --- !u!1 &1916153123
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,26 +2,32 @@ using UnityEngine;
 
 public class Entity_Combat : MonoBehaviour
 {
-    public Collider2D[] targetColliders;
+    public float damage = 10.0f;
 
     [Header("Target Detection")]
     [SerializeField] private Transform targetCheck;
-    [SerializeField] private float targetCheckRadius;
+    [SerializeField] private float targetCheckRadius = 1;
     [SerializeField] private LayerMask whatIsTarget;
 
     public void PerformAttack()
     {
         GetDetectedColliders();
 
-        foreach(var collider in targetColliders)
+        foreach(var target in GetDetectedColliders())
         {
-            Debug.Log("Attacking : " + collider.name);
+            Entity_Health targetHP = target.GetComponent<Entity_Health>();
+            targetHP?.TakeDamage(damage);
+
+            // if (targetHP == null)
+            //     continue;
+            // 
+            // targetHP.TakeDamage(10.0f);
         }
     }
 
-    private void GetDetectedColliders()
+    private Collider2D[] GetDetectedColliders()
     {
-        targetColliders = Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
+        return Physics2D.OverlapCircleAll(targetCheck.position, targetCheckRadius, whatIsTarget);
     }
 
     private void OnDrawGizmos()
