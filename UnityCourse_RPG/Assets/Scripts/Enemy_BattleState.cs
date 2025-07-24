@@ -14,8 +14,10 @@ public class Enemy_BattleState : Enemy_GroundedState
     {
         base.Enter();
 
-        if(player == null)
-            player = enemy.CheckPlayerDetected().transform;
+        UpdateBattleTimer();
+
+        // if(player == null)
+        player ??= enemy.GetPlayerReference();
 
         if(ShouldRetreat() == true)
         {
