@@ -61319,7 +61319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48db0063bab1e2458a275e5b67a3def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 35
   targetCheck: {fileID: 1675399777}
   targetCheckRadius: 1
   whatIsTarget:
@@ -61339,6 +61339,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   isDead: 0
+  currentHP: 0
+  knockbackPower: {x: 1.5, y: 2.5}
+  knockbackDuration: 0.2
+  heavyKnockbackPower: {x: 7, y: 7}
+  heavyKnockbackDuration: 0.5
+  heavyDamageThreshold: 0.3
 --- !u!114 &1828113925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61427,7 +61433,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3.5
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -61523,6 +61529,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   isDead: 0
+  currentHP: 0
+  knockbackPower: {x: 1.5, y: 2.5}
+  knockbackDuration: 0.2
+  heavyKnockbackPower: {x: 7, y: 7}
+  heavyKnockbackDuration: 0.5
+  heavyDamageThreshold: 0.3
 --- !u!114 &1831133419
 MonoBehaviour:
   m_ObjectHideFlags: 0
